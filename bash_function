@@ -1,0 +1,12 @@
+# .bash_alias sourced in .bashrc
+
+function headerlist
+{
+    head -n1 $* | tr ',' '\n' | cat -n
+}
+
+function gentags
+{
+    ctags -R --exclude='*.java' $( find . -type d -name 'src' )
+}
+

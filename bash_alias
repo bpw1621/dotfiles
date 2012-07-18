@@ -1,0 +1,37 @@
+# .bash_alias sourced in .bashrc
+
+alias h='history 25'
+alias cls='clear'
+alias lynx='lynx --vikeys'
+alias info='info --vi-keys'
+alias v="view"
+alias psme='\ps -ef | egrep "(^UID|^$USER)"'
+alias rehash='hash -r'
+alias mak='make'
+
+alias grep='/bin/grep --color'
+alias g='grep -riI'
+alias eg='env|g'
+
+alias ls='ls --color -F'
+alias ll='ls -l'
+alias la='ls -A'
+alias lla='ls -lA'
+alias lc='ls -l *.{C,H,caj,meta,mph}'
+
+alias ep='echo $PATH | tr ":" "\n" '
+alias el='echo $LD_LIBRARY_PATH | tr ":" "\n" '
+alias em='echo $MANPATH | tr ":" "\n" '
+alias ec='echo $CLASSPATH | tr ":" "\n" '
+alias es='echo $SHELL | tr ":" "\n" '
+
+alias be='boss :exit'
+alias br='boss :report'
+alias bl='boss :long'
+alias bll='boss :loglevel'
+alias bo='boss :oneshot'
+alias bk='boss :kill'
+alias bw='boss :who'
+
+alias goro='sudo su -'
+

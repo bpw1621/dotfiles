@@ -1,0 +1,43 @@
+[log]
+  decorate = short
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  ds = diff --staged
+  lg = log -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
+  unstage = reset HEAD
+  vdf = difftool
+  vds = difftool --staged
+[color]
+  ui = auto
+  interactive = auto
+  branch = auto
+  diff = auto
+  status = auto
+[pager]
+  status = true
+  show-branch = true
+  diff =
+[merge]
+  tool = vimdiff
+[mergetool]
+  keepBackup = false
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[format]
+  numbered = auto
+[user]
+  name = Bryan Patrick Wood
+  email = bpwood@solipsys.com
+[branch]
+  autosetuprebase = always
+[core]
+  autocrlf = false
