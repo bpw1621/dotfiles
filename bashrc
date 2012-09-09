@@ -26,7 +26,10 @@ case $- in
        ;;
 esac
 
-. "${HOME}/ps1.sh"
+
+#. "${HOME}/ps1.sh"
+function _update_ps1() { export PS1="$(~/powerline-bash.py $?)" }
+export PROMPT_COMMAND="_update_ps1"
 
 export LS_COLORS='di=38;5;108:fi=00:ln=38;5;116:ex=38;5;186'
 
