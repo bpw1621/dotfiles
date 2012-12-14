@@ -3,8 +3,10 @@
 [alias]
   st = status
   ci = commit
+  civ = commit -v
   br = branch
   co = checkout
+  cob = checkout -b
   df = diff
   ds = diff --staged
   lg = log -p
@@ -45,3 +47,5 @@
   autosetuprebase = always
 [core]
   autocrlf = false
+[push]
+  default = upstream
