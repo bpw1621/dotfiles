@@ -98,7 +98,7 @@ set hls is ic scs          " search
 
 " folding
 if exists("&fen")
-  set fen fdm=syntax fdls=0
+  set fen fdm=syntax fdl=99 fdls=99
 endif
 
 " taglist plugin options
