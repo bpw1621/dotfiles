@@ -12,7 +12,8 @@ shopt -s cdspell
 ulimit -c unlimited
 
 # hist settings
-export HISTCONTROL="ignoredups"
+export HISTFILE="${HOME}/tmp/bash_history.txt"
+export HISTCONTROL="ignoreboth"
 export HISTIGNORE="[   ]*:&:bg:fg:exit"
 export PROMPT_COMMAND="history -a"
 
@@ -26,20 +27,17 @@ case $- in
        ;;
 esac
 
-
-#. "${HOME}/ps1.sh"
-function _update_ps1() { export PS1="$(~/powerline-bash.py $?)" }
-export PROMPT_COMMAND="_update_ps1"
+. "${HOME}/.dotfiles/ps1.sh"
 
 export LS_COLORS='di=38;5;108:fi=00:ln=38;5;116:ex=38;5;186'
 
-# local perl modules
-#export PERL5LIB="${HOME}/perl/lib:${HOME}/perl/lib/perl5/5.8.8:${HOME}/perl/lib/perl5/site_perl:${PERL5LIB}"
-#export MANPATH="${MANPATH}:${HOME}/perl/man"
+export MAKE_OPTIMIZE=1
 
 # gcc
+GCC_VERSION='4.7.2'
+#GCC_VERSION='4.7.1'
 #GCC_VERSION='4.7.0'
-GCC_VERSION='4.6.3'
+#GCC_VERSION='4.6.3'
 #GCC_VERSION='4.5.3'
 #GCC_VERSION='4.5.1'
 #GCC_VERSION='4.4.1'
@@ -47,13 +45,13 @@ GCC_VERSION='4.6.3'
 
 #export LC_ALL=en_US.UTF-8
 
-export CC="ccache distcc gcc-${GCC_VERSION}/bin/gcc"
-export CXX="ccache distcc gcc-${GCC_VERSION}/bin/g++"
-export PATH="/usr/local/ccache/bin:/usr/local/distcc/bin:/usr/local/gcc-${GCC_VERSION}/bin"
+#export CC="ccache distcc gcc-${GCC_VERSION}/bin/gcc"
+#export CXX="ccache distcc gcc-${GCC_VERSION}/bin/g++"
+#export PATH="/usr/local/ccache/bin:/usr/local/distcc/bin:/usr/local/gcc-${GCC_VERSION}/bin"
 
-#export CC="/usr/local/gcc-${GCC_VERSION}/bin/gcc"
-#export CXX="/usr/local/gcc-${GCC_VERSION}/bin/g++"
-#export PATH="/usr/local/gcc-${GCC_VERSION}/bin"
+export CC="/usr/local/gcc-${GCC_VERSION}/bin/gcc"
+export CXX="/usr/local/gcc-${GCC_VERSION}/bin/g++"
+export PATH="/usr/local/gcc-${GCC_VERSION}/bin"
 
 #export CC="${HOME}/gcc-${GCC_VERSION}/bin/gcc"
 #export CXX="${HOME}/gcc-${GCC_VERSION}/bin/g++"
@@ -64,12 +62,10 @@ export PATH="/usr/local/ccache/bin:/usr/local/distcc/bin:/usr/local/gcc-${GCC_VE
 CPPFLAGS="${CPPFLAGS} -Wfatal-errors"
 
 # gen exports
-#export BOOST_ROOT="${HOME}/boost_1_48_0"
 export BOOST_ROOT="/usr/local/boost-1.49.0"
-export PATH=".:${PATH}:${HOME}/local/bin:/usr/local/vim-7.3/bin:${HOME}/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/git-1.7.7.2/bin:/usr/local/protobuf-2.4.1/bin"
+export PATH=".:${PATH}:${HOME}/local/bin:/usr/local/vim-7.3/bin:${HOME}/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/git-1.8.0/bin:/usr/local/protobuf-2.4.1/bin"
 export LD_LIBRARY_PATH="${HOME}/local/lib:/usr/local/lib:${BOOST_ROOT}/lib:${SQLITEROOT}/lib:/usr/local/protobuf-2.4.1/lib"
 
-#export EDITOR=/usr/bin/vim
 export EDITOR=/usr/local/vim-7.3/bin/vim
 export PAGER=/usr/bin/less
 
@@ -84,13 +80,14 @@ export CVS_RSH=/usr/bin/ssh
 # java
 export JAVA_HOME='/usr/local/java/jdk1.6.0_18'
 export JAVA_EXE="${JAVA_HOME}/bin/java"
-#export ANT_HOME='/usr/local/apache-ant-1.7.0'
-#export CLASSPATH=".:${ANT_HOME}/lib/ant-apache-log4j.jar"
-#export THREADS_FLAGS=green
-#export PATH="${PATH}:${JAVA_HOME}/bin:${ANT_HOME}/bin"
+export ANT_HOME='/usr/local/ant'
+export CLASSPATH=".:${ANT_HOME}/lib/ant-apache-log4j.jar"
+export THREADS_FLAGS=green
+export PATH="${PATH}:${JAVA_HOME}/bin:${ANT_HOME}/bin"
 
 # solipsys
-#export MSCT_CHANNEL=7
+export MSCT_CHANNEL=7
+export MTM_CHANNEL=${MSCT_CHANNEL}
 export SOLINET_PORT=37777
 
 export WORK="${HOME}/work"
@@ -120,9 +117,18 @@ if [ -e ${MSCTROOT} ]; then
   export MSCTROOT
   export PATH="${PATH}:${MSCTROOT}/bin"
   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${MSCTROOT}/lib"
+  MSCT_REPOS=( 'solinet' 'solimath' 'slate' 'tadil' 'dis' 'vmf' )
+  OPT_REPOS=( 'radarsim' 'regression' 'msct-ivv' 'cac2sp2' 'plugged' 'JtcwInterface' 'esmif' 'tcnapi' 'tcnutils' 'acmamsct' 'jadge' ) 
+elif [ -e "${WORK}/mtm" ]; then
+  MSCTROOT="${WORK}/mtm"
+  MTMROOT=$MSCTROOT
+  export MTMROOT
+  export PATH="${PATH}:${MSCTROOT}/bin"
+  export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${MSCTROOT}/lib"
+  MSCT_REPOS=( 'solinet' 'solimath' 'dis' )
+  OPT_REPOS=( 'radarsim' 'regression' 'mtm-ivv' )
 fi
 
-MSCT_REPOS=( 'solinet' 'solimath' 'slate' 'tadil' 'dis' )
 for REPO in ${MSCT_REPOS[@]}; do
   UREPO=$( echo "${REPO}" | tr [:lower:] [:upper:] )
   ROOT="${UREPO}ROOT"
@@ -131,7 +137,8 @@ for REPO in ${MSCT_REPOS[@]}; do
   if [ -e  ${LOCAL_ROOT} ]; then
     export ${ROOT}="${LOCAL_ROOT}"
   elif [ -e ${MSCT_README_REQ} ]; then
-    SED_STR="s|^setenv\s*${ROOT}\s*\${SOLIDEPS}/${REPO}-\(.*\)/|\1|p"
+    #SED_STR="s|^setenv\s*${ROOT}\s*\${SOLIDEPS}/${REPO}-\(.*\)/|\1|p"
+    SED_STR="s|^setenv\s*${ROOT}\s*\${SOLIDEPS}/${REPO}-\(.*\)|\1|p"
     REPO_VERSION=$( sed -n ${SED_STR} < ${MSCT_README_REQ} )
     export ${ROOT}="${SOLIDEPS}/${REPO}-${REPO_VERSION}" 
   fi
@@ -144,7 +151,6 @@ for REPO in ${MSCT_REPOS[@]}; do
   fi
 done
 
-OPT_REPOS=( 'radarsim' 'regression' 'msct-ivv' 'cac2sp2' 'analysisLib' 'JtcwInterface' 'esmif' 'tcnapi' 'acmamsct' 'jadge' ) 
 for REPO in ${OPT_REPOS[@]}; do
   UREPO=$( echo "${REPO}" | tr -d '-' | tr [:lower:] [:upper:] )
   ROOT="${UREPO}ROOT"
@@ -158,17 +164,13 @@ for REPO in ${OPT_REPOS[@]}; do
   fi
 done
 
+#if [ ! -e ${MSCTROOT}]; then
+#fi
+
 #export SQLITEROOT="${WORK}/sqlite"
 export SQLITEROOT="/usr/local/sqlite3/"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${SQLITEROOT}/lib"
-export PATH="${PATH}:${HOME}/gnuplot/bin"
 
-#if [ -e "${WORK}/buildTools" ]; then
-#  export PATH="${PATH}:${WORK}/buildTools"
-#fi
-
-#export PATH="${PATH}:${WORK}/bin"
-#export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${WORK}/lib"
 export PATH="${WORK}/bin:${PATH}"
 export LD_LIBRARY_PATH="${WORK}/lib:${LD_LIBRARY_PATH}"
 
@@ -191,6 +193,6 @@ SCRIPT="$OSPROOT/$OSPVERS/$OSPENV/$OSPARCH/release.com"
 export DDSROOT=$OSPL_HOME
 
 # sourcings
-if [ -f ${HOME}/.bash_alias ]; then . "${HOME}/.bash_alias"; fi
-if [ -f ${HOME}/.bash_function ]; then . "${HOME}/.bash_function"; fi
+if [ -e ${HOME}/.bash_alias ]; then . "${HOME}/.bash_alias"; fi
+if [ -e ${HOME}/.bash_function ]; then . "${HOME}/.bash_function"; fi
 
