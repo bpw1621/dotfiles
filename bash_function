@@ -8,3 +8,10 @@ function gentags {
     ctags -R --exclude='*.java' $( find . -type d -name 'src' )
 }
 
+function vncs {
+  vncserver -depth 24 -geometry 1200x1080 :${1:-7}
+}
+
+function vnck {
+  vncserver -kill :${1:-7}
+}
