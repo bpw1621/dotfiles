@@ -9,6 +9,11 @@ function gentags {
   ctags -R --exclude='*.java' $( find . -type d -name 'src' )
 }
 
+function serve {
+  local port="${1:-8000}"
+  python -m SimpleHTTPServer $port
+}
+
 function vncs {
   vncserver -depth 24 -geometry 1200x1080 :${1:-7}
 }
