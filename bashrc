@@ -15,9 +15,8 @@ ulimit -c unlimited
 
 # hist settings
 export HISTFILE="${HOME}/tmp/bash_history.txt"
-export HISTCONTROL="ignoreboth"
+export HISTCONTROL=ignoreboth
 export HISTIGNORE="[   ]*:&:bg:fg:exit"
-export PROMPT_COMMAND="history -a"
 
 # comp settings
 COMP_CVS_REMOTE=1
