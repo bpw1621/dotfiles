@@ -103,7 +103,7 @@ set nowrap                      " do not wrap lines
 
 let c_no_curly_error=1 " fixes the C++0x issue with braces and lambdas
 
-set et sta ts=2 sts=2 sw=2 " tab 
+set et sta ts=2 sts=2 sw=2 " tab
 set ai si cin ci           " indenting
 set hls is ic scs          " search
 
@@ -111,23 +111,6 @@ set hls is ic scs          " search
 if exists("&fen")
   set fen fdm=syntax fdl=99 fdls=99
 endif
-
-" taglist plugin options
-let Tlist_Use_Right_Window=1     " split to the right side of the screen
-let Tlist_Compart_Format=1       " show small menu
-let Tlist_Exist_OnlyWindow=1     " if you are the last, kill yourself
-"let Tlist_File_Fold_Auto_Close=0 " do not close tags for other files
-let Tlist_Enable_Fold_Column=0   " do not show folding tree
-
-" ctags
-"set tags=tags;/ " for recursive search for a tags file named tags up to root
-"set tags+=~/.vim/tags/cpp
-"set tags+=~/.vim/tags/solinet
-"set tags+=~/.vim/tags/solimath
-"set tags+=~/.vim/tags/slate
-"set tags+=~/.vim/tags/tadil
-"set tags+=~/.vim/tags/dis
-"set tags+=~/.vim/tags/msct
 
 " clang_complete
 "let g:clang_exec="${HOME}/local/bin/clang"
