@@ -50,12 +50,12 @@ export LS_COLORS='di=38;5;108:fi=00:ln=38;5;116:ex=38;5;186'
 export MAKE_OPTIMIZE=1
 
 # gcc
-GCC_VERSION='4.7.2'
+#GCC_VERSION='4.7.2'
 #GCC_VERSION='4.7.1'
 #GCC_VERSION='4.7.0'
 #GCC_VERSION='4.6.3'
 #GCC_VERSION='4.5.3'
-#GCC_VERSION='4.5.1'
+GCC_VERSION='4.5.1'
 #GCC_VERSION='4.4.1'
 #GCC_VERSION='3.4.6'
 
@@ -139,7 +139,7 @@ if [ -e ${MSCTROOT} ]; then
   export PATH="${PATH}:${MSCTROOT}/bin"
   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${MSCTROOT}/lib"
   MSCT_REPOS=( 'solinet' 'solimath' 'slate' 'tadil' 'dis' 'vmf' )
-  OPT_REPOS=( 'radarsim' 'regression' 'msct-ivv' 'cac2sp2' 'plugged' 'JtcwInterface' 'esmif' 'tcnapi' 'tcnutils' 'acmamsct' 'jadge' ) 
+  OPT_REPOS=( 'radarsim' 'regression' 'msct-ivv' 'cac2sp2' 'plugged' 'JtcwInterface' 'esmif' 'tcnapi' 'tcnutils' 'acmamsct' 'jadge' 'tdelrr' )
 elif [ -e "${WORK}/mtm" ]; then
   MSCTROOT="${WORK}/mtm"
   MTMROOT=$MSCTROOT
