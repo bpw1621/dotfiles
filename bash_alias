@@ -41,3 +41,6 @@ alias ipconfig='ifconfig'
 
 command -v colordiff > /dev/null 2>&1 && alias diff='colordiff -u'
 command -v htop > /dev/null 2>&1 && alias top=htop
+
+alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
+
