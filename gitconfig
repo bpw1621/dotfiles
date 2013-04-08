@@ -1,40 +1,41 @@
 [log]
   decorate = short
 [alias]
-  a      = add
-  ae     = add -e
-  ai     = add -i
-  alias  = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
-  ap     = add -p
-  br     = branch
-  brd    = branch -d
-  ci     = commit
-  cia    = commit -a
-  civ    = commit -v
-  cl     = !git clone git@git:$1
-  co     = checkout
-  cob    = checkout -b
-  cp     = cherry-pick
-  df     = diff
-  ds     = diff --staged
-  ignore = !([ ! -e .gitignore ] && touch .gitignore ) | echo $1 >> .gitignore
-  lf     = log -u
-  lp     = log -p
-  lol    = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola   = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  mend   = commit --amend
-  ls     = ls-files
-  lsu    = ls-files -u
-  ours   = git checkout --ours
-  rp     = reset -p
-  serve  = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-  st     = status -sb
-  stl    = status
-  theirs = git checkout --theirs
-  this   = !git init && git add . && git commit
-  un     = reset HEAD
-  vdf    = difftool
-  vds    = difftool --staged
+  a       = add
+  ae      = add -e
+  ai      = add -i
+  alias   = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+  ap      = add -p
+  br      = branch
+  brd     = branch -d
+  ci      = commit
+  cia     = commit -a
+  civ     = commit -v
+  cl      = !git clone git@git:$1
+  co      = checkout
+  cob     = checkout -b
+  cp      = cherry-pick
+  df      = diff
+  ds      = diff --staged
+  ignore  = !([ ! -e .gitignore ] && touch .gitignore ) | echo $1 >> .gitignore
+  lf      = log -u
+  lp      = log -p
+  lol     = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola    = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  mend    = commit --amend
+  ls      = ls-files
+  lsu     = ls-files -u
+  ours    = checkout --ours
+  rp      = reset -p
+  serve   = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+  st      = status -sb
+  stl     = status
+  theirs  = checkout --theirs
+  this    = !git init && git add . && git commit
+  undo    = reset HEAD
+  untrack = rm --cached
+  vdf     = difftool
+  vds     = difftool --staged
 [color]
   ui = auto
   interactive = auto
