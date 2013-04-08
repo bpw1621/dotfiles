@@ -3,8 +3,13 @@ set nocp " get out of horrible vi-compatible mode
 
 sil! call pathogen#infect()
 
-filetype indent plugin on " load filetype plugins
-syntax enable             " syntax highlighting on
+if has('autocmd')
+  filetype indent plugin on
+endif
+
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+endif
 
 set history=1000       " How many lines of history to remember
 set cf                 " enable error files and error jumping
@@ -27,27 +32,33 @@ endif
 set bg=dark
 sil! colo diablo3
 
-" backups
-set backup                                 " make backup file
-set backupdir^=${HOME}/tmp/vimfiles//      " where to put backup file
-set directory^=${HOME}/tmp/vimfiles//      " directory is the directory for temp file
-"set makeef^=${HOME}/tmp/vimfiles/error.err " When using make, where should it dump the file
+set ar aw
 
-if has('persistent_undo')
-  set undodir^=${HOME}/tmp/vimfiles//
-  set undofile
-  set ul=1000
+if isdirectory(expand('~/.cache/vim'))
+  if &dir =~# '^\.,'
+    set dir^=~/.cache/vim/swap//
+  endif
+  if &bdir =~# '^\.,'
+    set bk
+    set bdir^=~/.cache/vim/backup//
+  endif
+  if exists('+undofile') && exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
+    set undofile
+    set undodir^=~/.cache/vim/undo//
+    set ul=1000
+  endif
+  if exists('+quickfix')
+    set mef^=~/.cache/vim/make.log
+  endif
+  if has("spell")
+    set spl=en_us
+    set spf^=~/.cache/vim/custom_words.en_us.utf-8.add
+    set tsr+=~/.cache/vim/mthesaur.txt
+  endif
 endif
 
-"set autochdir
-"cnoremap cwd :lcd %:p:h
-
-" spelling & thesaurus
-if has("spell")
-  set spl=en_us
-  set spf=${HOME}/tmp/vimfiles/custom_words.en_us.utf-8.add
-  nnoremap <leader>s :set spell!<CR>
-  set tsr+=${HOME}/.vim/mthesaur.txt 
+if exists('+autochdir')
+  set autochdir
 endif
 
 " wild menu
@@ -132,6 +143,7 @@ nnoremap <leader>t :Tlist<CR>
 nnoremap <leader>e :Vex<CR>
 nnoremap <leader>v :e $MYVIMRC<CR>
 nnoremap <leader>c :set cuc! cul!<CR>
+nnoremap <leader>s :set spell!<CR>
 set pt=<leader>p
 
 " Map Q -> gq (better ex mode)
