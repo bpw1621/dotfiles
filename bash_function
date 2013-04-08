@@ -1,11 +1,12 @@
 # .bash_alias sourced in .bashrc
 
 function headerlist {
-    head -n1 $* | tr ',' '\n' | cat -n
+  local delim="${2:-','}"
+  head -n1 "$1" | tr $delim '\n' | cat -n
 }
 
 function gentags {
-    ctags -R --exclude='*.java' $( find . -type d -name 'src' )
+  ctags -R --exclude='*.java' $( find . -type d -name 'src' )
 }
 
 function vncs {
