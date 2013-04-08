@@ -8,6 +8,8 @@ shopt -s nocaseglob
 shopt -s nocaseglob
 shopt -s histappend
 shopt -s cdspell
+shopt -s cmdhist
+shopt -s checkwinsize
 
 ulimit -c unlimited
 
