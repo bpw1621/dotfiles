@@ -77,8 +77,9 @@ export BOOST_ROOT="/usr/local/boost-1.49.0"
 export PATH=".:${PATH}:${HOME}/local/bin:/usr/local/vim-7.3/bin:${HOME}/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/git-1.8.0/bin:/usr/local/protobuf-2.4.1/bin"
 export LD_LIBRARY_PATH="${HOME}/local/lib:/usr/local/lib:${BOOST_ROOT}/lib:${SQLITEROOT}/lib:/usr/local/protobuf-2.4.1/lib"
 
-export EDITOR=/usr/local/vim-7.3/bin/vim
-export PAGER=/usr/bin/less
+export EDITOR='/usr/local/vim-7.3/bin/vim'
+export PAGER='/usr/bin/less'
+export GREP_OPTIONS='--color=auto'
 
 export MANPATH="${MANPATH}:${HOME}/man"
 
