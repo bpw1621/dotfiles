@@ -68,12 +68,7 @@ export CC="/usr/local/gcc-${GCC_VERSION}/bin/gcc"
 export CXX="/usr/local/gcc-${GCC_VERSION}/bin/g++"
 export PATH="/usr/local/gcc-${GCC_VERSION}/bin"
 
-#export CC="${HOME}/gcc-${GCC_VERSION}/bin/gcc"
-#export CXX="${HOME}/gcc-${GCC_VERSION}/bin/g++"
-#export PATH="${HOME}/gcc-${GCC_VERSION}/bin"
-
 #CXXFLAGS="${CXXFLAGS} -Wfatal-errors"
-#CPPFLAGS="${CPPFLAGS} -Wfatal-errors -m32"
 CPPFLAGS="${CPPFLAGS} -Wfatal-errors"
 
 # gen exports
