@@ -8,6 +8,7 @@ alias v="view"
 alias psme='\ps -ef | egrep "(^UID|^$USER)"'
 alias rehash='hash -r'
 alias mak='make'
+alias ant='ant -logger org.apache.tools.ant.listener.AnsiColorLogger'
 
 alias grep='/bin/grep --color=auto'
 alias g='grep -riI'
