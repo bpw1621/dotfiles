@@ -21,13 +21,28 @@ export PROMPT_COMMAND="history -a"
 COMP_CVS_REMOTE=1
 COMP_CONFIGURE_HINTS=1
 COMP_TAR_INTERNAL_PATHS=1
+
 case $- in
   *i*) [[ -f /etc/bash_completion ]] && . /etc/bash_completion
-       [[ -f "${HOME}/.git-completion.sh" ]] && . "${HOME}/.git-completion.sh"
+       [[ -f "${HOME}/.dotfiles/git-completion.sh" ]] && . "${HOME}/.dotfiles/git-completion.sh"
+       [[ -f "${HOME}/.dotfiles/git-prompt.sh" ]] && . "${HOME}/.dotfiles/git-prompt.sh"
        ;;
 esac
 
-. "${HOME}/.dotfiles/ps1.sh"
+#export GIT_PS1_SHOWDIRTYSTATE=1
+#export GIT_PS1_SHOWSTASHSTATE=1
+#export GIT_PS1_SHOWUNTRACKEDFILES=1
+#export GIT_PS1_SHOWCOLORHINTS=1
+#export GIT_PS1_SHOWUPSTREAM='auto git'
+#export GIT_PS1_DESCRIBE_STYLE='branch'
+#export PROMPT_COMMAND='__git_ps1 "\w " "\\\$ " " (%s)"'
+
+export PROMPT_DIRTRIM=3
+
+function update_ps1_() {
+  export PS1="$(${HOME}/.dotfiles/powerline-shell.py $?)"
+}
+export PROMPT_COMMAND="update_ps1_"
 
 export LS_COLORS='di=38;5;108:fi=00:ln=38;5;116:ex=38;5;186'
 
