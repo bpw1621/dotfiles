@@ -182,30 +182,13 @@ done
 #if [ ! -e ${MSCTROOT}]; then
 #fi
 
-#export SQLITEROOT="${WORK}/sqlite"
-export SQLITEROOT="/usr/local/sqlite3/"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${SQLITEROOT}/lib"
-
 export PATH="${WORK}/bin:${PATH}"
 export LD_LIBRARY_PATH="${WORK}/lib:${LD_LIBRARY_PATH}"
 
-export PATH="${PATH}:${HOME}/mpi/bin"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${HOME}/mpi/lib"
-
-export DEBUG_TRACKER=3
-export DEBUG_FUSION=9
+#export DEBUG_TRACKER=3
+#export DEBUG_FUSION=9
 #export DEBUG_REGISTRATION=9
 #export DEBUG_RELATIVE=9
-
-# spine/dds
-OSPROOT="/usr/local/OpenSplice"
-OSPVERS="V5.4.1"
-OSPARCH="x86.linux2.6-dev"
-#OSPENV="RTS" # Run Time
-OSPENV="HDE" # Host Dev
-SCRIPT="$OSPROOT/$OSPVERS/$OSPENV/$OSPARCH/release.com"
-[ -f $SCRIPT ] && source $SCRIPT
-export DDSROOT=$OSPL_HOME
 
 # sourcings
 if [ -e ${HOME}/.bash_alias ]; then . "${HOME}/.bash_alias"; fi
