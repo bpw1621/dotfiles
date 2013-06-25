@@ -62,17 +62,17 @@ if exists('+autochdir')
 endif
 
 " wild menu
-set wmnu wim=list:longest,full wig=*.o
+set wmnu wim=list:longest,full wig=CVS,.git,*.o,*.class,*.la,*.so,*.obj,*.swp
 
 set lsp=0              " space it out a little more (easier to read)
-set ru                 " Always show current positions along the bottom 
+set ru                 " Always show current positions along the bottom
 set cmdheight=2        " the command bar is 2 high
 set nu                 " turn on line numbers
 set lz                 " do not redraw while running macros (much faster) (LazyRedraw)
 set hid                " you can change buffer without saving
 set backspace=2        " make backspace work normal
 set whichwrap+=<,>,h,l " backspace and cursor keys wrap to
-set shortmess=atI      " shortens messages to avoid 'press a key' prompt 
+set shortmess=atI      " shortens messages to avoid 'press a key' prompt
 set report=0           " tell us when anything is changed via :...
 set ss=1               " sidescroll behavior for fast terminals (stops the jumping when off screen with nowrap)
 
