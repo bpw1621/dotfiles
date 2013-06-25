@@ -21,3 +21,7 @@ function vncs {
 function vnck {
   vncserver -kill :${1:-7}
 }
+
+function make-git-ignore() {
+  curl http://gitignore.io/api/autotools,c++,c,gcov,haskell,java,latex,node,perl,python,qt,cvs,eclipse,emacs,linux,matlab,sass,svn,tags,vim,virtualenv,windows;
+}
