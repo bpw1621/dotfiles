@@ -126,9 +126,10 @@ export PATH="${ASSAULT_HOME}/ant/bin:${ASSAULT_HOME}/bin:${PATH}"
 # msct
 if [ -f '/etc/redhat-release' ]; then
   case $( cat '/etc/redhat-release' ) in
-    *Nahant*)  OSREL='-RH4';;
-    *Tikanga*) OSREL='-RH5';;
-    *)         OSREL=
+    *Nahant*)   OSREL='-RH4';;
+    *Tikanga*)  OSREL='-RH5';;
+    *Santiago*) OSREL='-RH6';;
+    *)          OSREL=
   esac
 fi
 export SOLIDEPS="/usr/local/solideps/Linux${OSREL}-gcc${GCC_VERSION}"
@@ -139,8 +140,8 @@ if [ -e ${MSCTROOT} ]; then
   export MSCTROOT
   export PATH="${PATH}:${MSCTROOT}/bin"
   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${MSCTROOT}/lib"
-  MSCT_REPOS=( 'solinet' 'solimath' 'slate' 'tadil' 'dis' 'vmf' )
-  OPT_REPOS=( 'radarsim' 'regression' 'msct-ivv' 'cac2sp2' 'plugged' 'JtcwInterface' 'esmif' 'tcnapi' 'tcnutils' 'acmamsct' 'jadge' 'tdelrr' )
+  MSCT_REPOS=('solinet' 'solimath' 'slate' 'tadil' 'dis' 'vmf')
+  OPT_REPOS=('radarsim' 'regression' 'msct-ivv' 'cac2sp2' 'plugged' 'JtcwInterface' 'esmif' 'tcnapi' 'tcnutils' 'acmamsct' 'jadge' 'tdelrr' 'ewct' 'msctthreat')
 elif [ -e "${WORK}/mtm" ]; then
   MSCTROOT="${WORK}/mtm"
   MTMROOT=$MSCTROOT
@@ -188,6 +189,10 @@ done
 
 #if [ ! -e ${MSCTROOT}]; then
 #fi
+
+# msctthreat hax
+export PTIROOT=~nmarin/P071960R/
+export SBS3IF_SBS2_MODE=1
 
 export PATH="${WORK}/bin:${PATH}"
 export LD_LIBRARY_PATH="${WORK}/lib:${LD_LIBRARY_PATH}"
