@@ -25,7 +25,7 @@ COMP_TAR_INTERNAL_PATHS=1
 
 case $- in
   *i*) [[ -f /etc/bash_completion ]] && . /etc/bash_completion
-       [[ -f "${HOME}/.dotfiles/git-completion.sh" ]] && . "${HOME}/.dotfiles/git-completion.sh"
+       [[ -f "${HOME}/.dotfiles/git-completion.bash" ]] && . "${HOME}/.dotfiles/git-completion.bash"
        [[ -f "${HOME}/.dotfiles/git-prompt.sh" ]] && . "${HOME}/.dotfiles/git-prompt.sh"
        ;;
 esac
