@@ -180,5 +180,9 @@ if has('autocmd')
   au FileType text setlocal tw=80
 endif
 
+if executable("ag")
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
 " abbrevs
 iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
