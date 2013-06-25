@@ -71,7 +71,7 @@ export PATH="/usr/local/gcc-${GCC_VERSION}/bin"
 CPPFLAGS="${CPPFLAGS} -Wfatal-errors"
 
 # gen exports
-export BOOST_ROOT='/usr/local/boost-1.49.0'
+export BOOST_ROOT='/usr/local/boost-1.53.0'
 export BOOSTROOT=${BOOST_ROOT}
 export PATH=".:${PATH}:${HOME}/local/bin:/usr/local/python/bin:/usr/local/vim-7.3/bin:/usr/local/git-1.8.0/bin:/usr/local/protobuf-2.4.1/bin:/usr/local/autoconf-2.63/bin:${HOME}/bin:/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin"
 export LD_LIBRARY_PATH="${HOME}/local/lib:/usr/local/lib:${BOOST_ROOT}/lib:${SQLITEROOT}/lib:/usr/local/protobuf-2.4.1/lib"
