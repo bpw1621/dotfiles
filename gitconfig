@@ -28,6 +28,7 @@
   ours    = checkout --ours
   rp      = reset -p
   serve   = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+  sl      = shortlog
   st      = status -sb
   stl     = status
   theirs  = checkout --theirs
@@ -38,21 +39,21 @@
   vds     = difftool --staged
 [color]
   ui = auto
-  interactive = auto
-  branch = auto
-  diff = auto
-  status = auto
 [pager]
   status = true
   show-branch = true
-  diff =
+  diff = true
 [merge]
   tool = vimdiff
   conflictstyle = diff3
+  state = true
 [mergetool]
   keepBackup = false
 [diff]
   tool = vimdiff
+  algorithm = patience
+  renames = copies
+  mnemonicprefix = true
 [difftool]
   prompt = false
 [format]
@@ -64,5 +65,20 @@
   autosetuprebase = always
 [core]
   autocrlf = false
+  pager = less -r
+  excludesfile = "~/.gitignore"
+  #whitespace = trailing-space,space-before-tab
 [push]
   default = upstream
+[rerere]
+  enabled = true
+[instaweb]
+  local = true
+  httpd = apache2 -f
+  port = 12345
+  browser = chrome
+  modulepath = /usr/lib/apache2/modules
+[commit]
+  #template = ~/.gitmessage.txt
+[help]
+  #autocorrect = 10
