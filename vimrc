@@ -129,14 +129,13 @@ endif
 " mappings
 
 " toggles
-nnoremap <leader>l :set list!<CR>
-nnoremap <leader>w :set wrap!<CR>
+nnoremap <leader>l :setl list!<CR>
+nnoremap <leader>w :setl wrap!<CR>
 nnoremap <leader>h :nohls<CR>
-nnoremap <leader>t :Tlist<CR>
 nnoremap <leader>e :Vex<CR>
 nnoremap <leader>v :e $MYVIMRC<CR>
-nnoremap <leader>c :set cuc! cul!<CR>
-nnoremap <leader>s :set spell!<CR>
+nnoremap <leader>c :setl cuc! cul!<CR>
+nnoremap <leader>s :setl spell! spelllang=en_us<CR>
 set pt=<leader>p
 
 " Map Q -> gq (better ex mode)
