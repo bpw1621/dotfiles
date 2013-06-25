@@ -77,6 +77,7 @@ export PATH=".:${PATH}:${HOME}/local/bin:/usr/local/python/bin:/usr/local/vim-7.
 export LD_LIBRARY_PATH="${HOME}/local/lib:/usr/local/lib:${BOOST_ROOT}/lib:${SQLITEROOT}/lib:/usr/local/protobuf-2.4.1/lib"
 
 export EDITOR='/usr/local/vim-7.3/bin/vim'
+LESS='-Fr'
 export PAGER='/usr/bin/less'
 export GREP_OPTIONS='--color=auto'
 
