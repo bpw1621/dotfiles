@@ -15,6 +15,8 @@ set show-all-if-unmodified on
 
 set completion-map-case on
 
+set blink-matching-paren on
+
 set meta-flag on
 set input-meta on
 set output-meta on
