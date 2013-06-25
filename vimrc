@@ -174,8 +174,11 @@ if exists("&cc")
 endif
 
 " autocommands
-autocmd BufEnter * :syntax sync fromstart " ensure full syntax highlighting
-autocmd BufWritePost .vimrc so %
+if has('autocmd')
+  au BufEnter * :syntax sync fromstart " ensure full syntax highlighting
+  au BufWritePost .vimrc so %
+  au FileType text setlocal tw=80
+endif
 
 " abbrevs
 iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
