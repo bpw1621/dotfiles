@@ -115,6 +115,7 @@ let c_no_curly_error=1 " fixes the C++0x issue with braces and lambdas
 set et sta ts=2 sts=2 sw=2 " tab
 set ai si cin ci           " indenting
 set hls is ic scs          " search
+set gd
 
 " folding
 if exists("&fen")
