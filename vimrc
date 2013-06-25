@@ -149,6 +149,8 @@ nnoremap Y y$
 nnoremap <Space> <PageDown>
 nnoremap <S-Space> <PageUp>
 
+vnoremap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
 fu! CompileAndRunCppFile()
   exec "!g++ % -o %< && %<"
 endf
