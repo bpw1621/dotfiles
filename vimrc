@@ -95,6 +95,13 @@ hi StatusLine ctermfg=Black ctermbg=White
 au InsertEnter * hi StatusLine ctermbg=White ctermfg=DarkRed
 au InsertLeave * hi StatusLine ctermbg=White ctermfg=Black
 
+hi ExtraWhitespace ctermbg=red guibg=red
+mat ExtraWhitespace /\s\+$/
+au BufWinEnter * mat ExtraWhitespace /\s\+$/
+au InsertEnter * mat ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * mat ExtraWhitespace /\s\+$/
+au BufWinLeave * call clearmatches()
+
 " what to show when I set list
 set listchars=tab:»·,trail:·,extends:>,precedes:<,eol:¬
 
