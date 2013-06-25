@@ -151,7 +151,8 @@ nnoremap <S-Space> <PageUp>
 vnoremap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 fu! CompileAndRunCppFile()
-  exec "!g++ % -o %< && %<"
+  "exec "!g++ -std=gnu++0x % -o %< && %<"
+  exec "!/usr/local/gcc-4.8.1/bin/g++ -std=gnu++0x % -o %< && %<"
 endf
 nnoremap <leader>m :call CompileAndRunCppFile()<CR>
 
