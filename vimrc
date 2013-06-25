@@ -76,6 +76,8 @@ set shortmess=atI      " shortens messages to avoid 'press a key' prompt
 set report=0           " tell us when anything is changed via :...
 set ss=1               " sidescroll behavior for fast terminals (stops the jumping when off screen with nowrap)
 
+set noek ttimeout tm=1000 ttm=100
+
 if has('mouse')
   set mouse=a            " use mouse everywhere
 endif
