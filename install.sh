@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTS=('bashrc' 'bash_alias' 'bash_function' 'bash_profile' 'cshrc' 'inputrc' 'vimrc' 'gitconfig')
+DOTS=('bashrc' 'bash_alias' 'bash_function' 'bash_profile' 'cshrc' 'inputrc' 'vimrc' 'gitconfig' 'gitignore')
 for DOT in ${DOTS[@]}; do
   [ -L "${HOME}/.${DOT}" ] && (unlink "${HOME}/.${DOT}")
   [ -f "${HOME}/.${DOT}" ] && (mv "${HOME}/.${DOT}" "${HOME}/${DOT}.bak")
