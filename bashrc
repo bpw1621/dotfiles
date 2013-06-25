@@ -109,8 +109,10 @@ export PATH="${PATH}:${JAVA_HOME}/bin:${ANT_HOME}/bin"
 
 # solipsys
 export MSCT_CHANNEL=7
+export MSCT_EVLOG_EXTENDED=1
 export MTM_CHANNEL=${MSCT_CHANNEL}
 export SOLINET_PORT=37777
+#export EVENTLOG_DEBUG_THREAD_ID=1
 
 export WORK="${HOME}/work"
 export DBDIR="${HOME}/db"
